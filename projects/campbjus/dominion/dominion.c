@@ -1025,11 +1025,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 int baron(strct gameState *state, int choice1, int currentPlayer){
       state->numBuys++;//Increase buys by 1!
       if (choice1 > 0) { //Boolean true or going to discard an estate
-          int p = 1;//Iterator for hand!       //BUG chnaged from 0 to 1
+          int p = 0;//Iterator for hand!       //BUG chnaged from 0 to 1 //bug changed back to 0
           int card_not_discarded = 1;//Flag for discard set!
           while(card_not_discarded) {
               if (state->hand[currentPlayer][p] == estate) { //Found an estate card!
-                  state->coins += 3;//Add 4 coins to the amount of coins //BUG should be four coins instead of 3
+                  state->coins += 3;//Add 4 coins to the amount of coins //BUG should be four coins instead of 3 //bug kept, shouldnt impact discard
                   state->discard[currentPlayer][state->discardCount[currentPlayer]] = state->hand[currentPlayer][p];
                   state->discardCount[currentPlayer]++;
                   for (; p < state->handCount[currentPlayer]; p++) {
@@ -1127,7 +1127,7 @@ int minion(struct gameState *state, int choice1, int choice2, int currentPlayer,
 
 }
 int ambassador(struct gameState *state, int choice1, int choice2 int currentPlayer){
-      j = 1;		//used to check if player has enough cards to discard  //BUG should be 0 and not 1
+      j = 0;		//used to check if player has enough cards to discard  //BUG should be 0 and not 1 //changed back to 0
 
       if (choice2 > 2 || choice2 < 0)
       {
@@ -1158,7 +1158,7 @@ int ambassador(struct gameState *state, int choice1, int choice2 int currentPlay
       state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 
       //each other player gains a copy of revealed card
-      for (i = 1; i < state->numPlayers; i++) //BUG skips a player, i should equal 0 and not 1
+      for (i = 0; i < state->numPlayers; i++) //BUG skips a player, i should equal 0 and not 1 //bug changed back
       {
           if (i != currentPlayer)
           {
@@ -1267,7 +1267,7 @@ int mine(struct gameState *state, int choice1, int choice2, int currentPlayer){
       discardCard(handPos, currentPlayer, state, 0);
 
       //discard trashed card
-      for (i = 1; i < state->handCount[currentPlayer]; i++) //BUG i shoild be 0 and not 1, skips a card in the players hand
+      for (i = 0; i < state->handCount[currentPlayer]; i++) //BUG i shoild be 0 and not 1, skips a card in the players hand //bug changed back to 0
       {
           if (state->hand[currentPlayer][i] == j)
           {
