@@ -25,9 +25,9 @@ int main(int argc, char **argv){
   printf("Testing the Baron function\n");
   baron(&G, 1, 0); //calls baron funciton
 
-  while(g->hand[0][i]!=NULL){
+  while(G->hand[0][i]!=NULL){
 
-    assert(g->hand[0][i]!=baron); //checks to make sure card is deleted.
+    assert(G->hand[0][i]!=baron); //checks to make sure card is deleted.
     i++; //iterate to next card
   }
 
@@ -35,6 +35,16 @@ int main(int argc, char **argv){
 
   assert(G->numBuys==2); //makes sure numBuys was incremented
 
+  while(G->hand[0][i]!=NULL){
+
+    if(G->hand[0][i]==estate){
+      G->hand[0][i]=mine;
+    } //checks to make sure card is deleted.
+    i++; //iterate to next card
+  }
+
+  baron(&G, 1, 0); //calls baron funciton
+  //not sure what will happen here cause this is testing a part of the code that is not written yet
 
   return 0;
 }

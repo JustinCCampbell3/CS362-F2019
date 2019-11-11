@@ -22,9 +22,9 @@ int main(int argc, char **argv){
   printf("Testing tribute function\n");
   tribute(&G, 0, 1, tributeRevealedCards); //call function
 
-  while(g->hand[0][i]!=NULL){
+  while(G->hand[0][i]!=NULL){
 
-    assert(g->hand[0][i]!=tribute); //checks to make sure card is deleted.
+    assert(G->hand[0][i]!=tribute); //checks to make sure card is deleted.
     i++; //iterate to next card
   }
   printf("Tribute card was deleted\n"); //successful test
