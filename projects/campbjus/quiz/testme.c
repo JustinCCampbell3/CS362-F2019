@@ -8,7 +8,7 @@ char inputChar()
 	// TODO: rewrite this function
 	int x;
 	char y;
-	x= rand() % (126 - 32 + 1) + 32;
+	x= rand() % (94 + 33);
 	y=(char) x;
 	return x;
 }
