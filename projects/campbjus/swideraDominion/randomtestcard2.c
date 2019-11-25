@@ -25,6 +25,7 @@ int int main(int argc, char const *argv[]) {
     int currentPlayer=rand() 3 + 0;
     int choice1=rand() % 1 + 0;
     int choice2;
+    int coin_bonus=0;
     if(choice1==0){
       choice2=1;
     }
@@ -38,7 +39,7 @@ int int main(int argc, char const *argv[]) {
       }
 
     }
-    minion(&G, choice1, choice2, currentPlayer, handPos);
+    playMinion(G->hand[0][0], choice1, choice2, 0, &G, handPos, coin_bonus);
 
   }
 

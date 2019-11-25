@@ -1261,14 +1261,14 @@ int playMinion(int card, int choice1, int choice2, int choice3, struct gameState
 						{
 							drawCard(i, state);
 						}
-						
+
 						//discard hand
 						while( state->handCount[i] > 0 )
 						{
 							discardCard(handPos, i, state, 0);
 						}
 
-						
+
 					}
 				}
 			}
@@ -1459,10 +1459,9 @@ int playMine(int card, int choice1, int choice2, int choice3, struct gameState *
 			if (state->hand[currentPlayer][i] == j)
 			{
 				discardCard(i, currentPlayer, state, 0);
-				
+
 			}
 		}
 
 		return 0;
 }
-

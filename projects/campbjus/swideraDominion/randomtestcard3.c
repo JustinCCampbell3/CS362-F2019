@@ -26,8 +26,9 @@ int int main(int argc, char const *argv[]) {
     int currentPlayer=rand() 2 + 0;
     int nextPlayer=currentPlayer + 1;
     int tributeRevealedCards[2] = {-1, -1};
+    int coin_bonus=0;
     gainCard(tribute, &G, 2, currentPlayer);
-    tribute(&G, currentPlayer, nextPlayer, tributeRevealedCards);
+    playTribute(G->hand[0][0], 0, 0, 0, &G, 0, coin_bonus); //new funciton call
 
   }
 

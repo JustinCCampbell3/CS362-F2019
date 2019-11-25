@@ -15,10 +15,11 @@ int main(int argc, char **argv){
   int i; //for loop Iterator
   struct gameState *G; //initalize gamestate
   initializeGame(3, j, 3, &G); //create game
-
+  int coin_bonus=0; //new variable
+  G->hand[0][0]=minion;
   i=G->coins;
 
-  minion(&G, 1, 0, 0, 0);
+  playMinion(G->hand[0][0], 1, 0, 0, &G, 0, coin_bonus); //new function call
 
   assert(G->coins==i+2); //asserts coins were given to the user.
 

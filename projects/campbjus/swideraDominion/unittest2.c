@@ -15,12 +15,15 @@ int main(int argc, char **argv){
   int i; //for loop Iterator
   struct gameState *G; //initalize gamestate
   initializeGame(3, j, 3, &G); //create game
-  int tributeRevealedCards[2] = {-1, -1}; //create tribute revealed cards variable
+
+// not needed anymore
+  //int tributeRevealedCards[2] = {-1, -1}; //create tribute revealed cards variable
+  int coin_bonus=0; //new variable
 
   G.coins=5; //need enough coins to play card
   G->hand[0][0]=tribute; //guves the currentPlayer a tribute card
   printf("Testing tribute function\n");
-  tribute(&G, 0, 1, tributeRevealedCards); //call function
+  tribute(G->hand[0][0], 0, 0, 0, &G, 0, coin_bonus); //call function
 
   while(G->hand[0][i]!=NULL){
 

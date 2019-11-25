@@ -15,11 +15,12 @@ int main(int argc, char **argv){
   int i;
   struct gameState *G; //initalize gamestate
   initializeGame(3, j, 3, &G); //create game
+  int coin_bonus=0; //new variable
 
   G->hand[0][0]=copper;
 
   printf("Testing mine funciton\n", );
-  i=mine(&G, 0, silver, 0); //calls mine function
+  i=playMine(G->hand[0][0], 0, silver, 0, &G, 0, coin_bonus); //calls mine function
 
   assert(G->hand[0][0]!=copper); //asserts card was discarded
   assert(G->hand[0][0]==silver); //asserts card was added

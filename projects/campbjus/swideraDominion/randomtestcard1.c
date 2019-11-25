@@ -19,13 +19,14 @@ int int main(int argc, char const *argv[]){
 
   for(i=0; i<2000; i++){
     struct gameState *G=newGame();
+    int coin_bonus=0;
     initializeGame(4, k, 1, &G);
     srand((unsigned) time(&t));
     k=rand() % 1 + 0;
     int currentPlayer=rand() 3 + 0;
     gainCard(baron, &G, 2, currentPlayer);
-    baron(&G, k, currentPlayer);
-
+    //baron(&G, k, currentPlayer);
+    playBaron(G->hand[0][0], 1, 0, 0, &G, 0, coin_bonus);
   }
 
   clock_t toc = clock();
